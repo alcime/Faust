@@ -1,12 +1,14 @@
 import re
 
-infile = input('Chemin du fichier :')
-outfile = 'promesse_ng.tsv'
+input_file_relative_pathname = input('Chemin du fichier :')
+output_file_relative_pathname = 'promesse_ng.tsv'
 
-fin = open(infile)
-fout = open(outfile, "w+")
-for line in fin:
+input_file = open(input_file_relative_pathname)
+output_file = open(output_file_relative_pathname, "w+")
+
+for line in input_file:
     line = re.sub('\"', '',line)
-    fout.write(line)
-fin.close()
-fout.close()
+    output_file.write(line)
+
+input_file.close()
+output_file.close()
