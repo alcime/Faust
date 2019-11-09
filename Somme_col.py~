@@ -1,0 +1,9 @@
+import pandas as pd
+with pd.read_csv('promesse.tsv', sep = '\t', header = 0, skiprows = 23277 ) as file:
+    for row in csv.reader(file):
+        if file['Titre',row] == file ['Titre',row + 1] :
+            for i in range(4,49):
+                file[i+1] += file[i]
+            else:
+                print (file[i])
+    
