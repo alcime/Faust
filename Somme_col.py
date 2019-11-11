@@ -24,19 +24,21 @@ col_count = df.shape[1]
 
 
 
+# Define function to print df
+def print_df(df):
+   print('Data found in ' + input_file_name)
+   for i_row in range(0, row_count):
+      for i_col in range(0, col_count) :
+         cell_contents = str(df.iloc[i_row][i_col])
+         if (i_col >= i_first_col) & (i_col <= i_last_col) :
+            print(' *' + cell_contents, end = '')
+         else :
+            print('  ' + cell_contents, end = '')
+      print('')
+   print('\n')
+
 # Print df
-print('Data found in ' + input_file_name)
-for i_row in range(0, row_count):
-   for i_col in range(0, col_count) :
-     cell_contents = str(df.iloc[i_row][i_col])
-     if (i_col >= i_first_col) & (i_col <= i_last_col) :
-        print(' *' + cell_contents, end = '')
-     else :
-        print('  ' + cell_contents, end = '')
-   print('')
-print('\n')
-   
- 
+print_df(df)
 
 # Sommation des colonnes
 output_file = open(ouput_file_name, "w")
@@ -64,5 +66,8 @@ for i_row in range(0, row_count - 1):
       if output_to_file :
          line = pd.DataFrame.to_csv(df.iloc[i_row:], sep = '\t')
          output_file.write(line)
-         
+
+# print result
+print_df(df)
+
 output_file.close()
